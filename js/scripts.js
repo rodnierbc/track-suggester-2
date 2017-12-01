@@ -2,9 +2,9 @@
 var name;
 var addres;
 var age;
-
 $(document).ready(function() {
   $("form#aboutYou").validator().on('submit', function(event) {
+    var flag = true;
     var course;
     name = $("#name").val();
     addres = $("#addres").val();
@@ -42,16 +42,19 @@ $(document).ready(function() {
       course = "Ruby";
     }
     else{
-      $("#java").hide();
-      $("#php").hide();
-      $("#ruby").hide();
-      $("#definitionPL").show();
+      flag =false;
     }
     $("#myModal").modal('toggle');
     $("#aboutYouInfo").toggle();
     $("#surveyQuestionsInfo").toggle();
-    $(".title").text("Great!!!");
-    $(".course").text(name +" we recommend the "+course+" course");
+    if(flag){
+      $(".title").text("Great!!!");
+      $(".course").text(name +" we recommend the "+course+" course");
+    }
+    else {
+      $(".title").text("Sorry!!!");
+      $(".course").text(name +", we do not currently have a possible answer for you");
+    }
     event.preventDefault();
   });
 });
