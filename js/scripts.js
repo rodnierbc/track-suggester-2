@@ -5,6 +5,7 @@ var age;
 
 $(document).ready(function() {
   $("form#aboutYou").validator().on('submit', function(event) {
+    var course;
     name = $("#name").val();
     addres = $("#addres").val();
     age = $("#age").val();
@@ -19,23 +20,26 @@ $(document).ready(function() {
     var developer = $("input:radio[name=developer]:checked").val();
     var mathSkills = $("input:radio[name=mathSkills]:checked").val();
 
-    if((math === "2" || math === "1") && mathSkills === "1" && developer ==="1"){  
+    if((math === "2" || math === "1") && mathSkills === "1" && developer ==="1"){
       $("#php").hide();
       $("#ruby").hide();
       $("#definitionPL").hide();
       $("#java").show();
+      course = "Java";
     }
     else if(curious === "1" && developer === "0"){
       $("#java").hide();
       $("#ruby").hide();
       $("#definitionPL").hide();
       $("#php").show();
+      course = "PHP";
     }
     else if(!(math === "0") && developer ==="1" && mathSkills===0){
       $("#php").hide();
       $("#java").hide();
       $("#definitionPL").hide();
       $("#ruby").show();
+      course = "Ruby";
     }
     else{
       $("#java").hide();
@@ -43,6 +47,11 @@ $(document).ready(function() {
       $("#ruby").hide();
       $("#definitionPL").show();
     }
+    $("#myModal").modal('toggle');
+    $("#aboutYouInfo").toggle();
+    $("#surveyQuestionsInfo").toggle();
+    $(".title").text("Great!!!");
+    $(".course").text(name +" we recommend the "+course+" course");
     event.preventDefault();
   });
 });
