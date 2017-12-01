@@ -1,3 +1,12 @@
-#surveyQuestionsInfo {
+#surveyQuestionsInfo, #php, #java, #ruby {
   display: none;
+}
+img {
+  float: left;
+  width: 120px;
+  height: auto;
+}
+.definition-img{
+  width: 250px;
+  height: auto;
 }
