@@ -19,22 +19,29 @@ $(document).ready(function() {
     var developer = $("input:radio[name=developer]:checked").val();
     var mathSkills = $("input:radio[name=mathSkills]:checked").val();
 
-    if((math === "2" || math === "1") && mathSkills === "1" && developer ==="1"){
-      $("#actors").show();
-      $("#angelinaJ").hide();
-      $("#leonardoD").show();
+    if((math === "2" || math === "1") && mathSkills === "1" && developer ==="1"){  
+      $("#php").hide();
+      $("#ruby").hide();
+      $("#definitionPL").hide();
+      $("#java").show();
     }
     else if(curious === "1" && developer === "0"){
-      //$(".animalName-title").text(animal);
-      $("#actors").show();
-      $("#leonardoD").hide();
-      $("#angelinaJ").show();
+      $("#java").hide();
+      $("#ruby").hide();
+      $("#definitionPL").hide();
+      $("#php").show();
     }
     else if(!(math === "0") && developer ==="1" && mathSkills===0){
-      
+      $("#php").hide();
+      $("#java").hide();
+      $("#definitionPL").hide();
+      $("#ruby").show();
     }
     else{
-
+      $("#java").hide();
+      $("#php").hide();
+      $("#ruby").hide();
+      $("#definitionPL").show();
     }
     event.preventDefault();
   });
