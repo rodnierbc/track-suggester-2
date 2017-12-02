@@ -37,7 +37,7 @@ $(document).ready(function() {
         $("#php").show('slow');
         course = "PHP";
       }
-      else if(!(math === "0") && developer ==="1" && mathSkills===0){
+      else if(!(math === "0") && developer ==="1" && mathSkills==="0"){
         $("#php").hide();
         $("#java").hide();
         $("#definitionPL").hide();
